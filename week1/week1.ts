@@ -47,6 +47,9 @@ function getTwoOldies(group: number[]) {
   return [secondOldest, firstOldest];
 }
 
+/* else озн - якщо age вже став новим firstOldest, не перевіряй його ще раз на secondOldest.
+А якщо age не більший за firstOldest, тоді вже має сенс перевірити, чи він більший за secondOldest. */
+
 console.log(getTwoOldies(groupOne));
 console.log(getTwoOldies(groupTwo));
 console.log(getTwoOldies(groupThree));
