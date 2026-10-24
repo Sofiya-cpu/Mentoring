@@ -53,3 +53,16 @@ function getTwoOldies(group: number[]) {
 console.log(getTwoOldies(groupOne));
 console.log(getTwoOldies(groupTwo));
 console.log(getTwoOldies(groupThree));
+
+/*
+function positiveSum(arr) {
+    return sum = arr.filter(number => number > 0).reduce((acc, value) => acc + value, 0);
+}
+
+function solution(str){
+return str.split('').reverse().join('');
+}
+function twoOldestAges(ages){
+return ages.sort((a, b)=>a-b).slice(-2);
+}
+*/
