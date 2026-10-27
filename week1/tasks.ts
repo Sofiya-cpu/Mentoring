@@ -47,6 +47,22 @@ function getTwoOldies(group: number[]) {
   return [secondOldest, firstOldest];
 }
 
+/* else озн - якщо age вже став новим firstOldest, не перевіряй його ще раз на secondOldest.
+А якщо age не більший за firstOldest, тоді вже має сенс перевірити, чи він більший за secondOldest. */
+
 console.log(getTwoOldies(groupOne));
 console.log(getTwoOldies(groupTwo));
 console.log(getTwoOldies(groupThree));
+
+/*
+function positiveSum(arr) {
+    return sum = arr.filter(number => number > 0).reduce((acc, value) => acc + value, 0);
+}
+
+function solution(str){
+return str.split('').reverse().join('');
+}
+function twoOldestAges(ages){
+return ages.sort((a, b)=>a-b).slice(-2);
+}
+*/
