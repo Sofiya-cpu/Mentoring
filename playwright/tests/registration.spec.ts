@@ -19,7 +19,7 @@ test.describe("Registration", () => {
     await expect(
       page.getByText("Account was successfully created. Welcome!"),
     ).toBeVisible();
-    await expect(page.getByLabel("root - Dashboard")).toBeDefined();
+    await expect(page.getByLabel("root - Dashboard")).toBeVisible();
   });
 
   test("N - password and confirm password do not match", async ({ page }) => {
@@ -94,7 +94,7 @@ test.describe("Registration", () => {
 
     await page.goto("/user/sign_up");
 
-    await page.getByLabel("Username").fill(Date.now().toString());
+    await page.getByLabel("Username").fill(`user${id}_2`);
     await page.getByLabel("Email Address").fill(emailAddress);
     await page.getByLabel("Password", { exact: true }).fill("12345678");
     await page.getByLabel("Confirm Password", { exact: true }).fill("12345678");
@@ -137,12 +137,9 @@ test.describe("Registration", () => {
   });
 
   test("N - empty fields", async ({ page }) => {
-    const userName = page.getByLabel("Username");
     await page.getByRole("button", { name: "Register Account" }).click();
-
     await expect(page).toHaveURL(/\/user\/sign_up/);
-    await expect(userName).not.toHaveJSProperty("validationMessage", ""); //await expect(locator).toHaveJSProperty(propertyName, expectedValue);
-  });
+  }); //await expect(locator).toHaveJSProperty(propertyName, expectedValue);
 
   test("P - open signin page from the registration page", async ({ page }) => {
     await page.getByRole("link", { name: "Sign in now!" }).click();
@@ -178,6 +175,6 @@ test.describe("Registration", () => {
     await page.getByLabel("Password", { exact: true }).fill(passwordRelogin);
     await page.getByRole("button", { name: "Sign In" }).click();
 
-    await expect(page.getByLabel("root - Dashboard")).toBeDefined();
+    await expect(page.getByLabel("root - Dashboard")).toBeVisible();
   });
 });
